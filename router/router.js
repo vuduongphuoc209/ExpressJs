@@ -2,20 +2,21 @@ const express = require("express");
 var router1 = express.Router();
 
 router1.get("/", (req, res) => {
-    res.send("This is user router");
+    res.send("This is get");
 });
 
-router1.get("/product", (req, res) => {
-    res.send("This is product route");
+router1.post("/", (req, res) => {
+    console.log(req.body);
+    res.send("This is post" + req.body.username + "" + req.headers.subname);
 });
 
-router1.get("/category", (req, res) => {
-    res.send("This is category route");
+router1.put("/", (req, res) => {
+    // res.send("This is put");
+    res.send("This is post" + req.body.username + "" + req.headers.subname);
 });
 
-// luon de cuoi cung de tranh bi loi khi co nhieu route trung nhau, vd: /api1/product va /api1/:id
-router1.get("/:id", (req, res) => {
-    res.send("This is user :" + req.params.id);
+router1.delete("/", (req, res) => {
+    res.send("This is delete");
 });
 
 module.exports = router1;
