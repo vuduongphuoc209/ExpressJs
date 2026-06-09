@@ -58,6 +58,9 @@ app.post("/login", (req, res, next) => {
         });
 });
 
+var accountRouter = require("./router/account");
+app.use("/api/account/", accountRouter);
+
 app.get("/", (req, res, next) => {
     res.send("Home page");
 });
